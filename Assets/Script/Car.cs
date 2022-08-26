@@ -9,9 +9,11 @@ public class Car : MonoBehaviour
     private bool _nitroCheck = false;
     private bool _measurement = false;
     private Rigidbody _rb;
-    float v = 0f;
-    float h = 0f;
-    private Vector3 dir = new Vector3(0, 0, 0);
+    private float _leftRt = 0f;
+    private float _rightRt = 0f;
+    private float v = 0f;
+    private float h = 0f;
+    private Vector3 _dir = new Vector3(0, 0, 0);
 
     void Start()
     {
@@ -23,18 +25,32 @@ public class Car : MonoBehaviour
 
         if (v != 0 && _measurement == false)
         {
-            if( _speed < _maxSpeed)
+            if (_speed < _maxSpeed)
             {
                 _speed += Time.deltaTime;
             }
         }
-        else 
+        else
         {
             _speed = 0f;
         }
 
-        dir = new Vector3(0, 0, v);
-        _rb.velocity = dir.normalized * _speed;
+        if (Input.GetKey("a"))
+        {
+            _leftRt -= Time.deltaTime;
+            transform.Rotate(0, _leftRt, 0);
+        }
+        else
+        {
+
+        }
+        if (Input.GetKey("d"))
+        {
+            _rightRt += Time.deltaTime;
+            transform.Rotate(0, _rightRt, 0);
+        }
+
+        _rb.velocity = _dir.normalized * _speed;
 
     }
 }
