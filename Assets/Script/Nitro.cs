@@ -12,9 +12,16 @@ public class Nitro : MonoBehaviour
 
     void Update()
     {
-        if(_nc._nitroCheck == true)
+        Boost();
+    }
+    void Boost()
+    {
+        if (_nc._nitroCheck == true)
         {
             _nc._speed = 8f;
         }
     }
+
 }
+
+
