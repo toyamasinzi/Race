@@ -12,16 +12,12 @@ public class Car : MonoBehaviour
     private float _maxSpeed = 5f;
     private float _leftRt = 0f;
     private float _rightRt = 0f;
-    private float _center = 10f;
-    private float v = 0f;
-    private float h = 0f;
+    private float _v = 0f;
     [SerializeField] float _nitroGauge = 0f;
     [SerializeField] float _gaugeCheck = 10f;
     [SerializeField] float _rtSpeed = 0.5f;
 
     private Rigidbody _rb;
-    private Vector3 _dir = new Vector3(0, 0, 0);
-
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -33,13 +29,13 @@ public class Car : MonoBehaviour
     }
     void Move()
     {
-        v = Input.GetAxisRaw("Vertical");
+        _v = Input.GetAxisRaw("Vertical");
 
-        if (v != 0 && _measurement == false)
+        if (_v != 0 && _measurement == false)
         {
             if (_speed < _maxSpeed)
             {
-                _speed += v * Time.deltaTime;
+                _speed += _v * Time.deltaTime;
             }
         }
         else
