@@ -16,6 +16,7 @@ public class Car : MonoBehaviour
     [SerializeField] float _nitroGauge = 0f;
     [SerializeField] float _gaugeCheck = 10f;
     [SerializeField] float _rtSpeed = 0.5f;
+    [SerializeField] Transform _camera;
 
     private Rigidbody _rb;
     void Start()
@@ -43,7 +44,7 @@ public class Car : MonoBehaviour
             _speed = 0f;
         }
 
-        _rb.velocity = transform.forward * _speed;
+        _rb.velocity = new Vector3(_camera.forward.x, _rb.velocity.y, _camera.forward.z) * _speed;
 
         if (Input.GetKey("a"))
         {
