@@ -91,7 +91,14 @@ public class Car : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            _nitroCheck =! _nitroCheck;
+            if (_nitroCheck == false)
+            {
+                _nitroCheck = true;
+            }
+            else
+            {
+                _nitroCheck = false;
+            }
         }
     }
 }

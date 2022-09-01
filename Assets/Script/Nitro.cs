@@ -21,6 +21,10 @@ public class Nitro : MonoBehaviour
         {
             _nc._speed = _boost;
         }
+       /* else
+        {
+            _nc._speed = 0f;
+        }*/
     }
 
 }
