@@ -9,10 +9,11 @@ public class Car : MonoBehaviour
     public bool _nitroCheck = false;
 
     public float _speed = 0f;
-    private float _maxSpeed = 5f;
     private float _leftRt = 0f;
     private float _rightRt = 0f;
-    private float _v = 0f;
+    private float _vInput = 0f;
+    [SerializeField] float _moveSpeed = 0.5f;
+    [SerializeField] float _maxSpeed = 5f;
     [SerializeField] float _nitroGauge = 0f;
     [SerializeField] float _gaugeCheck = 10f;
     [SerializeField] float _rtSpeed = 0.5f;
@@ -30,13 +31,13 @@ public class Car : MonoBehaviour
     }
     void Move()
     {
-        _v = Input.GetAxisRaw("Vertical");
-
-        if (_v != 0 && _measurement == false)
+        _vInput = Input.GetAxisRaw("Vertical");
+        Vector3 _dir = new Vector3(0, 0, _vInput);
+        if (_vInput != 0 && _measurement == false)
         {
             if (_speed < _maxSpeed)
             {
-                _speed += _v * Time.deltaTime;
+                _speed += _vInput * Time.deltaTime * _moveSpeed;
             }
         }
         else
@@ -44,7 +45,12 @@ public class Car : MonoBehaviour
             _speed = 0f;
         }
 
-        _rb.velocity = new Vector3(_camera.forward.x, _rb.velocity.y, _camera.forward.z) * _speed;
+        _camera.transform.position = transform.position;
+        // _rb.velocity = new Vector3(_camera.forward.x, _rb.velocity.y, _camera.forward.z) * _speed;
+        Vector3 vec = Camera.main.transform.TransformDirection(_dir);
+        vec.y = 0;
+        vec = vec.normalized;
+        _rb.velocity = vec * _speed;
 
         if (Input.GetKey("a"))
         {
@@ -85,7 +91,7 @@ public class Car : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            _nitroCheck = true;
+            _nitroCheck =! _nitroCheck;
         }
     }
 }

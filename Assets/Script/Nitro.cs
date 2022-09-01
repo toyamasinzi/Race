@@ -5,6 +5,7 @@ using UnityEngine;
 public class Nitro : MonoBehaviour
 {
     private Car _nc;
+    [SerializeField] float _boost = 8f;
     void Start()
     {
         _nc = FindObjectOfType<Car>();
@@ -18,7 +19,7 @@ public class Nitro : MonoBehaviour
     {
         if (_nc._nitroCheck == true)
         {
-            _nc._speed = 8f;
+            _nc._speed = _boost;
         }
     }
 
