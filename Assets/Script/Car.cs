@@ -11,17 +11,18 @@ public class Car : MonoBehaviour
     public float _speed = 0f;
     private float _leftRt = 0f;
     private float _rightRt = 0f;
-    private float _vInput = 0f;
-    [SerializeField] float _moveSpeed = 0.5f;
+    public float _vInput = 0f;
+    public float _moveSpeed = 0.5f;
     [SerializeField] float _maxSpeed = 5f;
-    [SerializeField] float _nitroGauge = 0f;
-    [SerializeField] float _gaugeCheck = 10f;
+
     [SerializeField] float _rtSpeed = 0.5f;
     [SerializeField] Transform _camera;
 
+    private Nitro _nitro;
     private Rigidbody _rb;
     void Start()
     {
+        _nitro = FindObjectOfType<Nitro>();
         _rb = GetComponent<Rigidbody>();
     }
     void Update()
@@ -84,21 +85,11 @@ public class Car : MonoBehaviour
     }
     void Nitro()
     {
-        if (_nitroGauge < _gaugeCheck)
-        {
-            _nitroGauge += Time.deltaTime;
-        }
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (_nitroCheck == false)
-            {
-                _nitroCheck = true;
-            }
-            else
-            {
-                _nitroCheck = false;
-            }
+            _nitro._check = true;
+            _nitroCheck = !_nitroCheck;
         }
     }
 }
