@@ -22,36 +22,27 @@ public class Nitro : MonoBehaviour
     }
     void Boost()
     {
+        //ブースト
         if (_nc._nitroCheck && _check)
         {
             _nc._speed = _boost;
-            if (_nitroGauge > _gaugeCheck)
-            {
-                _check = false;
-                _nitroGauge -= Time.deltaTime;
-            }
-        }
-        else if (_nc._nitroCheck == false)
-        {
-            if(_nitroGauge < _gaugeCheck)
-            {
-                _check = true;
-            }
-            else
-            {
-                return;
-            }
-
-        }
-        else
-        {
-            _nc._speed += _nc._vInput * Time.deltaTime * _nc._moveSpeed;
         }
 
-        if (_nitroGauge < 0 && _nitroGauge > _maxGauge)
+        //ニトロゲージを減らす処理
+        if (_nitroGauge > _gaugeCheck && _check)
+        {
+            _nitroGauge -= Time.deltaTime;
+        }
+        //ニトロゲージを回復する処理
+        else if (_nitroGauge < 0 && _nitroGauge > _maxGauge)
         {
             _nitroGauge += Time.deltaTime;
 
+        }
+        //ニトロゲージがオーバーヒートした時の処理
+        if(_nitroGauge <= _maxGauge && _check == false)
+        {
+            _check = true;
         }
     }
 }
