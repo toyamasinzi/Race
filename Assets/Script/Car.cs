@@ -17,7 +17,6 @@ public class Car : MonoBehaviour
 
     [SerializeField] float _rtSpeed = 0.5f;
     [SerializeField] Transform _camera;
-    [SerializeField] GameObject _cm;
 
     private Nitro _nitro;
     private Rigidbody _rb;
@@ -30,11 +29,10 @@ public class Car : MonoBehaviour
     {
         Move();
         Nitro();
-        _cm.transform.Rotate(0,0,0);
     }
     void Move()
     {
-     
+
         _vInput = Input.GetAxisRaw("Vertical");
         //Vector3 _dir = new Vector3(0, 0, _vInput);// z軸にVerticalの入力を代入
         if (_vInput != 0 && _measurement == false)
@@ -48,16 +46,16 @@ public class Car : MonoBehaviour
         {
             _speed = 0f;
         }
-         _rb.velocity = transform.right * _speed;
-        /*_rb.AddForce(_rb.mass * Vector3.right * _speed / Time.fixedDeltaTime, ForceMode.Force);
+        _rb.velocity = transform.right * _speed;
+        //_rb.AddForce(_rb.mass * Vector3.right * _speed / Time.fixedDeltaTime, ForceMode.Force);
 
 
-        _camera.transform.position = transform.position;
-        // _rb.velocity = new Vector3(_camera.forward.x, _rb.velocity.y, _camera.forward.z) * _speed;
-        Vector3 vec = this.transform.right; //Camera.main.transform.TransformDirection(_dir);//カメラをローカル座標からワールド座標に変換し、代入した入力をカメラ基準にする
-                                            //vec.y = 0;//y軸を固定
-                                            //vec = vec.normalized;//速度を一定化
-        _rb.velocity = vec * _speed;//移動
+        //_camera.transform.position = transform.position;
+        //// _rb.velocity = new Vector3(_camera.forward.x, _rb.velocity.y, _camera.forward.z) * _speed;
+        //Vector3 vec = this.transform.right; //Camera.main.transform.TransformDirection(_dir);//カメラをローカル座標からワールド座標に変換し、代入した入力をカメラ基準にする
+        //                                    //vec.y = 0;//y軸を固定
+        //                                    //vec = vec.normalized;//速度を一定化
+        //_rb.velocity = vec * _speed;//移動
 
         if (Input.GetKey("a"))//左に回転
         {
@@ -87,11 +85,11 @@ public class Car : MonoBehaviour
         {
             _dirRt = false;
             _rightRt = 0f;
-        }*/
+        }
 
 
-        float handle = GetHandleInput();
-        transform.Rotate(0, handle * 25 * Time.deltaTime, 0);//ハンドルの強さを入れる
+        /*  float handle = GetHandleInput();
+          transform.Rotate(0, handle * 25 * Time.deltaTime, 0);//ハンドルの強さを入れる*/
     }
     void Nitro()
     {
@@ -103,7 +101,7 @@ public class Car : MonoBehaviour
         }
     }
 
-    float GetHandleInput()
+    /*float GetHandleInput()
     {
         if (Input.GetKey("a"))
         {
@@ -113,10 +111,10 @@ public class Car : MonoBehaviour
         {
             return 1;
         }
-        /*if(Input.GetAxis("Horizontal"))
+        if(Input.GetAxis("Horizontal"))
         {
           
-        }*/
-        return 0;
-    }
+        }
+        return 0;*/
 }
+
