@@ -14,8 +14,7 @@ public class Car : MonoBehaviour
     public float _vInput = 0f;
     public float _hInput = 0f;
 
-    float _moveSpeed = 0.5f;
-    public float _move => _moveSpeed;
+    public float _moveSpeed = 0.5f;
 
     [SerializeField] float _maxSpeed = 5f;
 

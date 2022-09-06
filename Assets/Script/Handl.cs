@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Handl : MonoBehaviour
 {
-    [SerializeField] float a = 0f;
+    [SerializeField] float _slerp = 0f;
    
     void Start()
     {
@@ -19,7 +19,8 @@ public class Handl : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
 
         // 入力方向のベクトルを組み立てる
-        Vector3 dir = Vector3.forward * v + Vector3.right * h;
+       // Vector3 dir = Vector3.forward * v + Vector3.right * h;
+        Vector3 dir = Vector3.right * h;
 
         if (dir  != Vector3.zero)
         {
