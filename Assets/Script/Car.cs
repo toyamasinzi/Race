@@ -16,7 +16,8 @@ public class Car : MonoBehaviour
 
     public float _moveSpeed = 0.5f;
 
-    [SerializeField] float _maxSpeed = 5f;
+    float _maxSpeed = 5f;
+    public float _MaxSpeed => _maxSpeed;
 
     [SerializeField] float _rtSpeed = 0.5f;
     [SerializeField] Transform _camera;
