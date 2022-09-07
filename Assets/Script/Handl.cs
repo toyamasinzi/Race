@@ -30,7 +30,7 @@ public class Handl : MonoBehaviour
 
             // “ü—Í•ûŒü‚ÉŠŠ‚ç‚©‚É‰ñ“]‚³‚¹‚é
             Quaternion targetRotation = Quaternion.LookRotation(dir);
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime * a);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime * _slerp);
         }
     }
 }
