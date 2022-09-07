@@ -96,9 +96,9 @@ public class Car2 : MonoBehaviour
         //}
 
 
-        /*  float handle = GetHandleInput();
-          transform.Rotate(0, handle * 25 * Time.deltaTime, 0);//ハンドルの強さを入れる*/
-    }
+            /*  float handle = GetHandleInput();
+              transform.Rotate(0, handle * 25 * Time.deltaTime, 0);//ハンドルの強さを入れる*/
+        }
     void Nitro()
     {
 

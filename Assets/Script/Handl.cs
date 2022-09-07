@@ -3,6 +3,7 @@ using UnityEngine;
 public class Handl : MonoBehaviour
 {
     [SerializeField] float _slerp = 0f;
+    [SerializeField] float _speed = 0f;
    
     void Start()
     {
@@ -30,7 +31,7 @@ public class Handl : MonoBehaviour
 
             // “ü—Í•ûŒü‚ÉŠŠ‚ç‚©‚É‰ñ“]‚³‚¹‚é
             Quaternion targetRotation = Quaternion.LookRotation(dir);
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime * _slerp);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, _speed * _slerp);
         }
     }
 }
