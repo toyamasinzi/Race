@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title/Title.unity
+    guid: 3b5657bb2f7cdac4da8ee5b86f0498cf
+  - enabled: 1
+    path: Assets/Scenes/STAGESELECT/STAGESELECT.unity
+    guid: 1ed6a680d499f164ab0fde99efebc2d5
+  - enabled: 1
+    path: Assets/Scenes/Race/Race.unity
+    guid: db2919676a3b91d49ad3eefc5911ef63
+  - enabled: 1
+    path: Assets/Scenes/Race/RaceClear.unity
+    guid: 38b10d27e3c1cad4ebe5150dd09990a4
+  - enabled: 1
+    path: Assets/Scenes/Time/Time.unity
+    guid: f574f5c0e30042d4fa8c16cfa1a5e3b6
+  - enabled: 1
+    path: Assets/Scenes/Time/TimeClear.unity
+    guid: 7fbf644e60bf08044a04d8a4ffd534ae
   m_configObjects: {}
