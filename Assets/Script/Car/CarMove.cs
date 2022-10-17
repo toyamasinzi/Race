@@ -50,7 +50,7 @@ public class CarMove : MonoBehaviour
         _vInput = Input.GetAxisRaw("Vertical");
         _hInput = Input.GetAxisRaw("Horizontal");
 
-        transform.Rotate(0, _hInput * _rotateSpeed, 0);
+        transform.Rotate(0, _hInput, 0);
         if (_vInput != 0)
         {
             _Smoke.SetActive(true);
